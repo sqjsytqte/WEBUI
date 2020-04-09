@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体</title>
+    <style>
+        .one{
+            /* font-weight: normal;
+            font-style: italic;
+            font-family: '黑体'; */
+            font:bold italic 20px/2em '宋体','微软雅黑';
+        }
+        .two{
+            font-weight: bold;
+            font-family: '微软雅黑';
+        }
+        .four{
+            font-size: 20px;
+            color: #ffffff;
+            background-color: cornflowerblue;
+            height: 100px;
+            /* line-height: 100px; */
+            /*overflow: scroll;*/ /*拉动条*/
+            text-indent: 2em; /*缩进两个字符*/
+
+        }
+        .btn{
+            border: 1px solid #ccc;
+            display: inline-block;
+            border-radius: 5px;
+            padding: .5em .3em;
+        }
+        .btn-large{
+            font-size: 18px;
+        }
+        .btn-small{
+            font-size: 12px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn btn-large">大按钮</div>
+    <div class="btn btn-small">小按钮</div>
+
+    <div class="four">
+        第四块代码，第四块代码，第四块代码，第四块代码，第四块代码，第四块代码。
+    </div>
+    <h1>一级标题</h1>
+    <div class="one">盒子一</div>
+    <div class="two">盒子二</div>
+    <div class="three"><strong>盒子三</strong></div>
+</body>
+</html>

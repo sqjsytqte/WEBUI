@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+</head>
+<style>
+    .container{
+        background-color: darkgrey;
+
+    }
+    .container > div{
+        height: 100px;
+        width: 100px;
+    }
+    .container > div.one{
+        background-color: red;
+        float: left;
+    }
+    .container > div.two{
+        background-color: green;
+        width: 110px;
+        height: 110px;
+        float: left;
+    }
+    .container > div.three{
+        background-color: blue;
+        width: 120px;
+        height: 120px;
+        float: left;
+    }
+    .container::after{
+        content: "";
+        display: block; /* 伪元素变块元素 */
+        clear: left; /* 左侧不允许出现浮动 */
+    }
+    .products{
+        height: 150px;
+        background-color: gold;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="one"></div>
+        <div class="two"></div>
+        <div class="three"></div>
+        
+    </div>
+    <div class="products"></div>
+</body>
+</html>

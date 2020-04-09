@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易严选</title>
+    <style>
+         /* 1.重置样式 */
+        body,ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        /* 2.公共样式 */
+        .index{
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        /* 3.结构样式 */
+        /* (1).广告 */
+        .ad{
+            background-color: #f4f4f4;
+            margin-bottom: 20px;
+        }
+        .ad::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .ad > ul{
+            text-align: center;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ad > ul > li{
+            height: 250px;
+            width: 1200px;
+            background-color: hotpink;
+        }
+        /* (2).新品 */
+        .new{
+            background-color: #fbfbfb;
+            margin-bottom: 20px;
+        }
+        .new::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .new > ul{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 910px;
+        }
+        .new > ul > li{
+            /* height: 200px; */
+            width: 220px;
+            background-color: lightskyblue;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .new > ul > li:nth-child(4n){
+            margin-right: 0;
+        }
+        .new > ul > li:nth-child(n+5){
+            margin-bottom: 0;
+        }
+        .new > ul > li:nth-child(-n+4){
+            height: 160px;
+        }
+        .new > ul > li:nth-child(n+5){
+            height: 240px;
+        }
+        /* (3).热门 */
+        .popular{
+            background-color: #f4f4f4;
+            margin-bottom: 20px;
+        }
+        .popular::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .popular > ul{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 910px;
+        }
+        .popular > ul > li{
+            height: 200px;
+            width: 190px;
+            background-color: lime;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .popular > ul >li:nth-child(1){
+            height: 410px;
+            width: 310px;
+            margin-bottom: 0;
+        }
+        .popular > ul >li:nth-child(4){
+            margin-right: 0;
+        }
+        .popular > ul >li:nth-child(5){
+            margin-bottom: 0;
+        }
+        .popular > ul >li:nth-child(6){
+            margin-bottom: 0;
+        }
+        .popular > ul >li:nth-child(7){
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="index">
+        <div class="ad">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+        <div class="new">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="popular">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
