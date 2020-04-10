@@ -9,18 +9,22 @@
         body,ul{
             margin: 0;
             padding: 0;
+        }
+        body{
             font: 16px '宋体';
+            color: #666666;
         }
         ul{
             list-style: none;
         }
         a{
             text-decoration: none;
-            color: black;
+            color: #666666;
         }
         /* 导航 */
         .nav{
             background-color: #f4f4f4;
+            position: relative;
         }
         .nav > ul::after{
             content: "";
@@ -39,9 +43,19 @@
             width: 100%;
             top: 3em;
             left: 0;
-            float: left;
+            text-align: left;
             padding: 1em;
-            /* display: none; */
+            display: none;
+        }
+        .nav >ul >li:hover {
+            background-color: cornflowerblue;
+            color: #ffffff;
+        }
+        .nav >ul >li:hover a {
+            color: #ffffff;
+        }
+        .nav >ul >li:hover > .nav_son {
+            display: block;
         }
         /* /导航 */
     </style>
