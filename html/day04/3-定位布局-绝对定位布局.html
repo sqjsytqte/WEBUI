@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位</title>
+    <style>
+        /* 重置 */
+        body,ul{
+            margin: 0;
+            padding: 0;
+            font: 16px '宋体';
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        /* 导航 */
+        .nav{
+            background-color: #f4f4f4;
+        }
+        .nav > ul::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .nav >ul >li{
+            float: left;
+            line-height: 3em;
+            width: 100px;
+            text-align: center;
+        }
+        .nav .nav_son{
+            position: absolute;
+            background-color: cadetblue;
+            width: 100px;
+            top: 3em;
+            left: 0;
+            float: left;
+            padding: 1em;
+            /* display: none; */
+        }
+        /* /导航 */
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="">首页</a></li>
+            <li>
+                <a href="">学院风采</a>
+                <div class="nav_son">
+                    <a href="">软件学院</a>
+                </div>
+            </li>
+            <li><a href="">校园招聘</a></li>
+            <li><a href="">联系我们</a></li>
+        </ul>
+    </div>
+</body>
+</html>
