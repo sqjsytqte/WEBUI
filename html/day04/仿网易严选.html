@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易严选</title>
+    <style>
+         /* 1.重置样式 */
+        body,ul,p {
+            margin: 0;
+            padding: 0;
+            font: 12px/1.5 "Microsoft Yahei","微软雅黑",verdana;
+        }
+        ul {
+            list-style: none;
+        }
+        /* 2.公共样式 */
+        .index{
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+        }
+        /* 3.结构样式 */
+        /* (1).顶栏 */
+        .row{
+            height: 36px;
+            background-color: #333;
+        }
+        .row > ul::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .row > ul{
+            width: 1090px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .row > ul > li{
+            float: right;
+            color: #ccc;
+            font-size: 12px;
+            height: 36px;
+            line-height: 36px;
+            margin-left: 10px;
+            /* margin-right: 10px; */
+            /* border-left: 1px solid #ccc; */
+        }
+        .row > ul > li:not(:last-child)::before{
+            content: '';
+            display: inline-block;
+            height: 16px;
+            border-left: 1px solid #5c5c5c;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        /* (2).导航栏 */
+        .functab{
+            height: 140px;
+            background-color: #ffffff;
+        }
+        .functab > ul::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .functab > ul{
+            width: 1090px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* (2.1).图片，搜索框，购物车 */
+        .functab > ul:first-child > li{
+            float: left;
+            height: 86px;
+        }
+        .functab > ul:first-child > li:first-child{
+            background-image: url('../images/icon.png');
+            background-position: 0 -298px;
+            width: 212px;
+            height: 60px;
+            margin-top: 24px;
+        }
+        .functab > ul:first-child > li:nth-child(2){
+            height: 32px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border: 1px solid #CC9756;
+            border-bottom-left-radius: 19px;
+            border-top-left-radius: 19px;
+            width: 402px;
+            padding-left: 38px;
+            margin-top: 26px;
+            margin-left: 163px;
+        }
+        .functab > ul:first-child > li:nth-child(3){
+            width: 90px;
+            height: 38px;
+            background-color: #CC9756;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+            color: #fff;
+            line-height: 38px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-top: 26px;
+        }
+        .functab > ul:first-child > li:last-child{
+            float: right;
+            width: 132px;
+            height: 20px;
+            border: 1px solid #CC9756;
+            border-radius: 19px;
+            padding: 8px 0;
+            margin-top: 26px;
+            margin-left: 43px;
+            color: #CC9756;
+            font-size: 14px;
+        }
+        /* (2.2).导航栏 */
+        .functab > ul:last-child > li{
+            float: left;
+            height: 54px;
+            font-size: 14px;
+            font-weight: 700;
+            height: 24px;
+            margin-top: 29px;
+            padding: 0 26px;
+        }
+        .functab > ul:last-child > li > a{
+            color: #000;
+        }
+        .functab > ul:last-child > li:first-child{
+            padding-left: 0;
+        }
+        .functab > ul:last-child > li:last-child{
+            padding-right: 0;
+        }
+        .functab > ul:last-child > li:first-child > a{
+            color: #CC9756;
+            border-bottom: 3px solid #CC9756;
+            padding-bottom: 4px;
+        }
+        .functab > ul:last-child > li:hover > a{
+            color: #CC9756;
+            border-bottom: 3px solid #CC9756;
+            padding-bottom: 4px;
+        }
+        /* (2.2.1).居家生活 */
+        .functab > ul:last-child > li:nth-child(2){
+            width: 56px;
+        }
+        .functab > ul:last-child > li:nth-child(2):hover > .jujia{
+            display: block;
+        }
+        .jujia{
+            width: auto;
+            height: auto;
+            padding: 14px 20px 20px 20px;
+            position: absolute;
+            top: 176px;
+            left: 50%;
+            margin-left: -601px;
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            display: none;
+        }
+        .jujia > ul{
+            float: left;
+            width: 124px;
+            max-width: 124px;
+            margin-right: 24px;
+            text-align: left;
+        }
+        .jujia > ul:last-child{
+            margin-right: 0;
+        }
+        .jujia > ul > li:first-child{
+            height: 36px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 36px;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+        .jujia > ul > li{
+            height: 50px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            line-height: 50px;
+            color: #333;
+        }
+        .jujia > ul > li:last-child{      
+            margin-bottom: 0;
+        }
+        /* (3).广告 */
+        .ad{
+            background-color: #f4f4f4;
+        }
+        .ad::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .ad > ul{
+            width: 100%;
+            text-align: center;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            /* border: 1px solid #ccc; */
+        }
+        .ad > ul > li{
+            height: 420px;
+            background-color: hotpink;
+            background: url('../images/ad.jpg') no-repeat center center;
+        }
+        /* (4).促销 */
+        .promotion{
+            background-color: #c2052c;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .promotion > ul::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .promotion > ul{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1090px;
+        }
+        .promotion > ul > li{
+            height: 190px;
+            width: 265px;
+            float: left;
+            background-color: aqua;
+            margin-right: 10px;
+        }
+        .promotion > ul > li:nth-child(1){
+            background: url('../images/promotion-1.png');
+        }
+        .promotion > ul > li:nth-child(2){
+            background: url('../images/promotion-2.png');
+        }
+        .promotion > ul > li:nth-child(3){
+            background: url('../images/promotion-3.png');
+        }
+        .promotion > ul > li:last-child{
+            background: url('../images/promotion-4.png');
+            margin-right: 0;
+        }
+        /* (5).左侧固定热销榜 */
+        .left{
+            width: 108px;
+            border: 1px solid #E2DED6;
+            position: fixed;
+            top: 62px;
+            left: 0;
+            background: #fff;
+            border-radius: 4px;
+        }
+        .left > ul > li:first-child{
+            font-size: 16px;
+            color: #BB3343;
+            text-align: center;
+            line-height: 38px;
+            height: 38px;
+            font-weight: 700;
+            background: url('../images/hot.png') bottom no-repeat;
+        }
+        .left > ul > li:first-child::before,.left > ul > li:first-child::after{
+            content: '';
+            display: block;
+            width: 8px;
+            border-bottom: 2px solid #BB3343;
+            position: absolute;
+            top: 18px;
+        }
+        .left > ul > li:first-child::before{
+            left: 15px;
+        }
+        .left > ul > li:first-child::after{
+            left: 85px;
+        }
+        .left > ul > li:not(:first-child){
+            width: 86px;
+            height: 34px;
+            margin: 1px 11px 0;
+            text-align: center;
+            line-height: 35px;
+            border-bottom: 1px solid #E2DED6;
+            font-size: 14px;
+        }
+        .left > ul > li:last-child{
+            border-bottom: 0;
+        }
+        .left > ul > li:hover{
+            color: #BB3343;
+        }
+        /* (6).右侧固定栏 */
+        .right{
+            width: 72px;
+            position: fixed;
+            top: 62px;
+            right: 0;
+            background: #fff;
+        }
+        .right > ul > li:first-child{
+            height: 150px;
+            background: url('../images/right-ad.gif');
+        }
+        .right > ul > li:nth-child(2) > a{
+            background-image: url('../images/right.png');
+            background-position: 0 -363px;
+            display: inline-block;
+            height: 29px;
+            width: 28px;
+            margin-left: 22px;
+            margin-right: 22px;
+            margin-top: 17px;
+            margin-bottom: 3px;
+        }
+        .right > ul > li:nth-child(2){
+            height: 84px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .right > ul > li:nth-child(2):hover{
+            color: #CC9756;
+        }
+        .right > ul > li:nth-child(2):hover > a{
+            background-position: 0 -324px;
+        }
+        .right > ul > li:nth-child(3){
+            height: 139px;
+            border-bottom: 1px solid #E2DED6;
+            text-align: center;
+        }
+        .right > ul > li:nth-child(3) > a{
+            background-image: url('../images/canvas.png');
+            display: inline-block;
+            height: 70px;
+            width: 70px;
+        }
+        .right > ul > li:nth-child(3) > p:nth-child(2){
+            margin-top: -2px;
+            color: #666;
+            line-height: 17px;
+        }
+        .right > ul > li:nth-child(3) > p:not(:nth-child(2)){
+            color: #BC3B3B;
+            line-height: 17px;
+        }
+        .right > ul > li:nth-child(4) > a{
+            background-image: url('../images/right.png');
+            background-position: 0 -527px;
+            display: inline-block;
+            height: 26px;
+            width: 26px;
+            margin-left: 23px;
+            margin-right: 23px;
+            margin-top: 14px;
+            margin-bottom: 3px;
+        }
+        .right > ul > li:nth-child(4){
+            height: 77px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .right > ul > li:nth-child(4):hover{
+            color: #CC9756;
+        }
+        .right > ul > li:nth-child(4):hover > a{
+            background-position: 0 -491px;
+        }
+        .right > ul > li:nth-child(4):hover > .right_dinyue{
+            display: block;
+        }
+        .right_dinyue{
+            width: 370px;
+            height: 220px;
+            background-color: #ffffff;
+            position: absolute;
+            right: 80px;
+            top: 305px;
+            box-shadow: 0 2px 4px 0 #7f7f7f;
+            display: none;
+        }
+        .right_dinyue > div:first-child{
+            height: 70px;
+            width: 370px;
+            background-image: url('../images/right_dinyue.png');
+            color: #ffffff;
+            font-size: 26px;
+            line-height: 70px;
+        }
+        .right > ul > li:nth-child(5) > a{
+            background-image: url('../images/right.png');
+            background-position: 0 -128px;
+            display: inline-block;
+            height: 31px;
+            width: 32px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 14px;
+            margin-bottom: 3px;
+        }
+        .right > ul > li:nth-child(5){
+            height: 82px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .right > ul > li:nth-child(5):hover{
+            color: #CC9756;
+        }
+        .right > ul > li:nth-child(5):hover > a{
+            background-position: 0 -87px;
+        }
+        .right > ul > li:nth-child(6) > a{
+            background-image: url('../images/right.png');
+            background-position: 0 -299px;
+            display: inline-block;
+            height: 15px;
+            width: 24px;
+            margin-left: 24px;
+            margin-right: 24px;
+            margin-top: 13px;
+        }
+        .right > ul > li:nth-child(6){
+            height: 60px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .right > ul > li:nth-child(6):hover > a{
+            background-position: 0 -274px;
+        }
+        /* (7).新品 */
+        .new{
+            background-color: #fff;
+        }
+        .new > ul::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .new > ul{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1090px;
+        }
+        .new > ul > li{
+            height: 364px;
+            width: 265px;
+            /* background-color: lightskyblue; */
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 98px;
+        }
+        .new > ul > li:nth-child(1){
+            height: 28px;
+            width: 1090px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .new > ul > li:nth-child(5){
+            margin-right: 0;
+        }
+        .new > ul > li > p:first-child{
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            float: left;
+        }
+        .new > ul > li:nth-child(n+2) > div:first-child{
+            height: 265px;
+            width: 265px;
+            margin-bottom: 8px;
+            background-color: blue;
+        }
+        .new > ul > li:nth-child(2) > div:first-child{
+            background-image: url('../images/new-1.jpg');
+        }
+        .new > ul > li:nth-child(3) > div:first-child{
+            background-image: url('../images/new-2.png');
+        }
+        .new > ul > li:nth-child(4) > div:first-child{
+            background-image: url('../images/new-3.jpg');
+        }
+        .new > ul > li:nth-child(5) > div:first-child{
+            background-image: url('../images/new-4.png');
+        }
+        .new > ul > li:nth-child(n+2) > div:last-child{
+            height: 91px;
+            width: 166px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+        }
+        .new > ul > li:nth-child(n+2) > div:last-child > p:first-child{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .new > ul > li:nth-child(n+2) > div:last-child > p:last-child{
+            color: red;
+        }
+        .new > ul > li:not(:first-child):hover{
+            background-color: #f4f4f4;
+        }
+        /* (8).热门 */
+        .popular{
+            background-color: #f4f0ea;
+        }
+        .popular::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .popular > ul{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 1090px;
+        }
+        .popular > ul > li{
+            height: 280px;
+            width: 223px;
+            background-color: #fff; 
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .popular > ul >li:nth-child(1){
+            height: 28px;
+            width: 1090px;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0);
+        }
+        .popular > ul >li:nth-child(2){
+            height: 570px;
+            width: 390px;
+            margin-bottom: 60px;
+        }
+        .popular > ul >li:nth-child(5){
+            margin-right: 0;
+        }
+        .popular > ul >li:nth-child(6){
+            margin-bottom: 0;
+        }
+        .popular > ul >li:nth-child(7){
+            margin-bottom: 0;
+        }
+        .popular > ul >li:nth-child(8){
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+        .popular > ul > li > p:first-child{
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+            float: left;
+        }
+        .popular > ul > li:nth-child(n+3) > div:first-child{
+            height: 180px;
+            width: 223px;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .popular > ul > li:nth-child(n+3) > div:last-child{
+            height: 100px;
+            width: 136px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
+        .popular > ul > li:nth-child(2) > div:first-child{
+            height: 400px;
+            width: 390px;
+            background: url('../images/popular-1.png') no-repeat center center;
+            border-bottom: 1px solid #E2DED6;
+        }
+        .popular > ul > li:nth-child(2) > div:last-child{
+            width: 248px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .popular > ul > li:nth-child(3) > div:first-child{
+            background: url('../images/popular-2.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(4) > div:first-child{
+            background: url('../images/popular-3.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(5) > div:first-child{
+            background: url('../images/popular-4.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(6) > div:first-child{
+            background: url('../images/popular-5.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(7) > div:first-child{
+            background: url('../images/popular-6.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(8) > div:first-child{
+            background: url('../images/popular-7.png') no-repeat center center;
+        }
+        .popular > ul > li:nth-child(2) > div:last-child > p:first-child{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .popular > ul > li:nth-child(n+3) > div:last-child > p:first-child{
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .popular > ul > li:nth-child(2) > div:last-child > p:last-child{
+            font-size: 16px;
+        }
+        .popular > ul > li:nth-child(n+2) > div:last-child > p:last-child{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="index" id="top">
+        <div class="row">
+            <ul>
+                <li><a href="">APP</a></li>
+                <li><a href="">客户服务</a></li>
+                <li><a href="">企业采购</a></li>
+                <li><a href="">甄选家</a></li>
+                <li><a href="">会员</a></li>
+                <li><a href="">我的订单</a></li>
+                <li><a href="">登录/注册</a></li>
+            </ul>
+        </div>
+        <div class="functab">
+            <ul>
+                <li></li>
+                <li></li>
+                <li>搜索</li>
+                <li>购物车</li>
+            </ul>
+            <ul>
+                <li><a href="">首页</a></li>
+                <li>
+                    <a href="">居家生活</a>
+                    <div class="jujia">
+                        <ul>
+                            <li>口碑好物</li>
+                            <li>口碑好物</li>
+                            <li>抑菌防螨</li>
+                            <li>春夏好物</li>
+                            <li>主题床品</li>
+                            <li>北欧原木</li>
+                            <li>餐厨爆款清单</li>
+                        </ul>
+                        <ul>
+                            <li>床上用品</li>
+                            <li>床品件套</li>
+                            <li>被枕盖毯</li>
+                            <li>床垫床褥</li>
+                        </ul>
+                        <ul>
+                            <li>家居饰品</li>
+                            <li>抱枕靠垫</li>
+                            <li>家饰家饰</li>
+                            <li>居家布艺</li>
+                        </ul>
+                        <ul>
+                            <li>家具家装</li>
+                            <li>客餐厅家具</li>
+                            <li>卧室家具</li>
+                            <li>办公书房家具</li>
+                            <li>小件家具</li>
+                            <li>灯具</li>
+                            <li>地毯窗帘</li>
+                        </ul>
+                        <ul>
+                            <li>收纳日用</li>
+                            <li>收纳</li>
+                            <li>晾晒除味</li>
+                            <li>毛巾浴巾</li>
+                            <li>居家拖鞋</li>
+                            <li>家庭医疗</li>
+                        </ul>
+                        <ul>
+                            <li>厨房用品</li>
+                            <li>锅具</li>
+                            <li>餐厨配件</li>
+                            <li>刀剪砧板</li>
+                        </ul>
+                        <ul>
+                            <li>餐具水具</li>
+                            <li>餐具</li>
+                            <li>水具杯壶</li>
+                            <li>茶咖酒具</li>
+                        </ul>
+                        <ul>
+                            <li>宠物生活</li>
+                            <li>宠物食品</li>
+                            <li>宠物用品</li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">服饰鞋包</a></li>
+                <li><a href="">美食酒水</a></li>
+                <li><a href="">个护清洁</a></li>
+                <li><a href="">母婴亲子</a></li>
+                <li><a href="">运动旅行</a></li>
+                <li><a href="">数码家电</a></li>
+                <li><a href="">全球特色</a></li>
+                <li><a href="">为你严选</a></li>
+                <li><a href="">众筹</a></li>
+            </ul>
+        </div>
+        <div class="ad">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+        <div class="promotion">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="left">
+            <ul>
+                <li>热销榜</li>
+                <li>全站热销榜</li>
+                <li>居家生活榜</li>
+                <li>服饰鞋包榜</li>
+                <li>美食酒水榜</li>
+                <li>数码家电榜</li>
+                <li>个护清洁榜</li>
+                <li>运动旅行榜</li>
+                <li>母婴亲子榜</li>
+                <li>全球特色榜</li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li></li>
+                <li>
+                    <a href=""></a>
+                    新人有礼
+                </li>
+                <li>
+                    <a href=""></a>
+                    <p>扫码领</p>
+                    <p>APP大额</p>
+                    <p>新人红包</p>
+                </li>
+                <li>
+                    <a href=""></a>
+                    订阅电子刊
+                    <div class="right_dinyue">
+                        <div>严选生活美学</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </li>
+                <li>
+                    <a href=""></a>
+                    在线客服
+                </li>
+                <li><a href="#top"></a></li>
+            </ul>
+        </div>
+        <div class="new">
+            <ul>
+                <li>
+                    <p>新品首发</p>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>【4.11专属】2张1000元礼品卡 直减25元</p>
+                        <p>￥1975</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>自然情侣款，女式空气棉轻盈牛仔裤</p>
+                        <p>￥157</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>舒睡养眠，儿童可水洗蚕丝夏凉被</p>
+                        <p>￥349</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>百看不厌的黑白，女式复古波点飘带衬衫</p>
+                        <p>￥207</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="popular">
+            <ul>
+                <li>
+                    <p>人气推荐</p>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>新贵轻奢8小时，60支锦眠贡缎四件套</p>
+                        <p>￥352</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>99%即食燕窝 3瓶*4盒</p>
+                        <p>￥1058</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>15分钟快速救脸，射频多功能美容仪</p>
+                        <p>￥699</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>一锤轻松，高颜值轻羽筋膜按摩仪</p>
+                        <p>￥599</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>多功能收纳整理柜</p>
+                        <p>￥399</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>紫外线除螨，N620除螨仪</p>
+                        <p>￥369</p>
+                    </div>
+                </li>
+                <li>
+                    <div></div>
+                    <div>
+                        <p>16件装 避免细菌残留 懒人抹布超值组</p>
+                        <p>￥176</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
