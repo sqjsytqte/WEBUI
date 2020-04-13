@@ -1,0 +1,49 @@
+body{
+	font: 12px/1.5 "Microsoft Yahei","微软雅黑",verdana;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #333333;
+}
+
+/* 公共样式 */
+.wrapper{
+	width: 1090px;
+	margin: 0 auto;
+}
+
+.top_bar{
+	
+}
+.top_bar > .wrapper > ul::after,.top_bar > .wrapper:after{
+	content:"";
+	display: block;
+	clear: both;
+}
+.top_bar .top_nav{
+	float: right;
+}
+.top_bar .top_nav > li{
+	float: left;
+	padding-left: 1em;
+	margin-left: 1em;
+	position: relative;
+	line-height: 36px;
+}
+.top_bar .top_nav > li::before{
+	content:"";
+	display: inline-block;
+	height: 16px;
+	border-left: 1px solid #999999;
+	margin-right: 1em;
+	vertical-align: middle;
+}
+.top_bar .top_nav > li:hover{
+	color: #FFFFFF;
+}
+.top_bar .top_nav > li .top_nav_son{
+	position: absolute;
+}
