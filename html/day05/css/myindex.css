@@ -34,6 +34,16 @@
 .top_bar .top_nav > li:hover .top_nav_son{
     display: block;
 }
+.top_bar  .top_nav >li .top_nav_son .sj {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #ffffff;
+	top: -5px;
+	left: 50%;
+	margin-left: -5px;
+	transform: rotate(45deg);
+  }
 .top_bar .top_nav > li .top_nav_son{
     position: absolute;
     width: 60px;
@@ -43,9 +53,35 @@
     display: none;
 }
 .top_bar .top_nav > li .top_nav_son > li{
-    border: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
     line-height: 36px;
 }
 .top_bar .top_nav > li .top_nav_son > li:last-child{
     border-bottom: none;
+}
+/* 2.logo及搜索 */
+.two_bar{
+	padding: 20px 0;
+}
+.two_bar .logo{
+	display: inline-block;
+	height: 60px;
+	width: 212px;
+	background: url('../images/icon.png');
+	background-position: 0 -298px;
+}
+.shopcar{
+	cursor: pointer;/* 可点击 */
+}
+.icon{
+	background: url('../images/icon.png');
+}
+.search_box > span.icon{
+	background-position: 0 -518px;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+}
+.search_box > input{
+	border: 0;
 }
