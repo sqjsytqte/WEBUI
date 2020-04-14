@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易严选</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        html {
+            font-size: 37.5px;/* 网易严选的页面这一项的值会随页面大小改变，目前37.5px为iPhone X的大小 */
+        }
+        /* 内容页面 */
+        .content {
+            margin-top: 2rem;
+            margin-bottom: 1.30667rem;
+            background-color: #eeeeee;
+            height: 2000px;
+        }
+        /* 滚动图 */
+        .content > .rollimg{
+            height: 3.94667rem;
+        }
+        .content > .rollimg > i{
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background: url('./images/ad.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        /* 描述 */
+        .content > .desc{
+            width: 100%;
+            height: .96rem;
+            padding: 0 .4rem;
+            background-color: #fff;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+        }
+        .content > .desc > div{
+            flex-grow: 1;
+            height: .42667rem;
+        }
+        .content > .desc > div > i{
+            display: inline-block;
+            width: .42667rem;
+            height: .42667rem;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        .content > .desc > div:first-child > i{
+            background-image: url('./images/desc-1.png');
+        }
+        .content > .desc > div:nth-child(2) > i{
+            background-image: url('./images/desc-2.png');
+        }
+        .content > .desc > div:last-child > i{
+            background-image: url('./images/desc-3.png');
+        }
+        .content > .desc > div > span{
+            /* vertical-align: super; */
+            font-size: .32rem;
+            color: #333;
+            margin-left: .10667rem;
+            line-height: .42667rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* 分类 */
+        .content > .classes{
+            padding-bottom: .42667rem;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #fff;
+        }
+        .content > .classes > div{
+            width: 1.46667rem;
+            height: 2.08rem;
+            margin: .13333rem .26667rem 0;
+            margin-bottom: .12rem;
+            flex-basis: 1.46667rem;
+            text-align: center;
+        }
+        .content > .classes > div:nth-child(n+6){
+            margin-bottom: 0;
+        }
+        .content > .classes > div > i{
+            display: inline-table;
+            width: 1.46667rem;
+            height: 1.46667rem;
+            background-size: 100% 100%;
+            background-image: url('./images/classes-1.png');
+        }
+        /* 新人优惠 */
+        .newuser > div{
+            height: 3.2rem;
+            background-image: url('./images/newuser.gif');
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .newuser > div > i{
+            position: absolute;
+            top: 14%;
+            left: 10%;
+            display: inline-table;
+            width: 2.24rem;
+            height: 2.24rem;
+            background-image: url('./images/newuser-1.png');
+            background-size: 100% 100%;
+        }
+        /* /内容页面 */
+
+        /* 底部导航 */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 1.30667rem;
+            background-color: #ffffff;
+            border-top: 1px solid #efefef;
+        }
+
+        .footer>ul {
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-around;
+            line-height: 0.9;
+        }
+
+        .footer>ul>li {
+            text-align: center;
+        }
+
+        .footer > ul > li > span:first-child{
+            background-image: url('./images/footer.png');
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: .53333rem;
+            height: .53333rem;
+            background-size: .53333rem 6.53333rem;
+        }
+
+        .footer > ul > li:first-child > span:first-child{
+            background-position: 0 -2.66667rem;
+        }
+        .footer > ul > li:nth-child(2) > span:first-child{
+            background-position: 0 -2rem;
+        }
+        .footer > ul > li:nth-child(3) > span:first-child{
+            background-position: 0 -4.66667rem;
+        }
+        .footer > ul > li:nth-child(4) > span:first-child{
+            background-position: 0 -.66667rem;
+        }
+        .footer > ul > li:last-child > span:first-child{
+            background-position: 0 -6rem;
+        }
+
+        .footer>ul>li.current > span:last-child{
+            color: #DD1A21
+        }
+
+        .footer > ul > li > span:last-child {
+            display: block;
+            margin-top: .09333rem;
+            font-size: .32rem;
+            color: #666;
+            line-height: 1;
+        }
+        /* /底部导航 */
+
+        /* 顶部 */
+        .header {
+            position: fixed;
+            top: 0;
+            height: 2rem;
+            width: 100%;
+            background-color: #ffffff;
+            border-bottom: 1px solid #efefef;
+        }
+        /* logo，搜索，登录 */
+        .search_bar {
+            padding: .21333rem .4rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .search_bar>.logo {
+            display: inline-block;
+            width: 1.84rem;
+            height: .53333rem;
+            background-image: url('./images/logo.png');
+            margin-right: .26667rem;
+            background-size: cover;
+        }
+
+        .search_bar>.search_box {
+            flex-grow: 1;
+            background-color: #ededed;
+            height: .74667rem;
+            font-size: .37333rem;
+            border-radius: .10667rem;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search_bar>.search_box > i{
+            background-image: url('./images/search.png');
+            background-size: 100% 100%;
+            display: inline-block;
+            width: .37333rem;
+            height: .37333rem;
+            margin-right: .13333rem;
+        }
+
+        .search_bar>.search_box span {
+            /* background-color: rgba(255, 255, 255, 0); */
+            /* border: none; */
+            font-size: .37333rem;
+            color: #666;
+        }
+
+        .search_bar>.btn_login {
+            width: .98667rem;
+            height: .53333rem;
+            line-height: .53333rem;
+            text-align: center;
+            color: #DD1A21;
+            border: 1px solid #DD1A21;
+            border-radius: .10667rem;
+            margin-left: .21333rem;
+            font-size: .32rem;
+        }
+        /* 导航栏 */
+        .nav_wrapper {
+            position: relative;
+            margin-top: -.01333rem;
+        }
+
+        .nav_wrapper>.nav {
+            overflow: hidden;
+            padding-right: 1.33333rem;
+            height: 100%;
+            width: 100%;
+        }
+
+        .nav_wrapper>.nav>ul {
+            width: 1600px;
+            padding: 0 .4rem;
+            display: flex;
+            flex-flow: row nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav_wrapper>.nav>ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .nav_wrapper>.nav>ul>li {
+            /* float: left; */
+            padding: 0 .21333rem;
+            line-height: .8rem;
+            font-size: .37333rem;
+            margin-left: .26667rem;
+            position: relative;
+        }
+
+        .nav_wrapper>.nav>ul>li:first-child{
+            margin-left: 0;
+        }
+
+        .nav_wrapper>.nav>ul>li:first-child > a{
+            color: #DD1A21;
+        }
+
+        .nav_wrapper>.nav>ul>li:first-child::after{
+            content: ' ';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: .05333rem;
+            background-color: #DD1A21;
+        }
+
+        .nav_wrapper>.toggle{
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .nav_wrapper>.toggle > div:first-child{
+            width: .8rem;
+            height: .8rem;
+            background-image: linear-gradient(to right,rgba(255,255,255,0),#fff);
+            /* background-image: linear-gradient(45deg, #000,#fff); */
+        }
+
+        .nav_wrapper>.toggle > div:last-child{
+            width: 1.33333rem;
+            height: .8rem;
+            text-align: center;
+            background: #fff;
+        }
+
+        .nav_wrapper>.toggle > div:last-child > i{
+            margin-top: .2rem;
+            display: inline-block;
+            width: .4rem;
+            height: .4rem;
+            background-image: url('./images/more.png');
+            background-size: 100% 100%;
+        }
+        /* /顶部 */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- 首行 -->
+            <div class="search_bar">
+                <a href="" class="logo"></a>
+                <div class="search_box">
+                    <i></i>
+                    <span>搜索商品, 共27344款好物</span>
+                    <!-- <input type="text" placeholder="搜索商品, 共27355款好物"> -->
+                </div>
+                <div class="btn_login">登录</div>
+            </div>
+            <!-- 导航 -->
+            <div class="nav_wrapper">
+                <div class="nav">
+                    <ul>
+                        <li><a href="">推荐</a></li>
+                        <li><a href="">居家生活</a></li>
+                        <li><a href="">服饰鞋包</a></li>
+                        <li><a href="">美食酒水</a></li>
+                        <li><a href="">母婴亲自</a></li>
+                        <li><a href="">运动履行</a></li>
+                        <li><a href="">数码家电</a></li>
+                        <li><a href="">全球特色</a></li>
+                    </ul>
+                </div>
+                <div class="toggle">
+                    <div></div>
+                    <div>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 中部内容 -->
+        <div class="content">
+            <!-- 滚动图 -->
+            <div class="rollimg">
+                <i></i>
+            </div>
+            <!-- 描述文字 -->
+            <div class="desc">
+                <div>
+                    <i></i>
+                    <span>网易自营品牌</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>30天无忧退货</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>48小时快速退款</span>
+                </div>
+            </div>
+            <!-- 分类 -->
+            <div class="classes">
+                <div>
+                    <i></i>
+                    <span>新品首发</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>居家生活</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>服饰鞋包</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>美食酒水</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>个护清洁</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>母婴亲子</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>运动旅行</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>数码家电</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>全球特色</span>
+                </div>
+                <div>
+                    <i></i>
+                    <span>好货抄底</span>
+                </div>
+            </div>
+            <!-- 新人优惠 -->
+            <div class="newuser">
+                <div>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="footer">
+            <ul>
+                <li class="current">
+                    <span></span>
+                    <span>首页</span>
+                </li>
+                <li>
+                    <span></span>
+                    <span>分类</span>
+                </li>
+                <li>
+                    <span></span>
+                    <span>值得买</span>
+                </li>
+                <li>
+                    <span></span>
+                    <span>购物车</span>
+                </li>
+                <li>
+                    <span></span>
+                    <span>个人</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

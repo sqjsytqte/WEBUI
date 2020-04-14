@@ -1,7 +1,8 @@
 /* 1. 重置样式 */
 body {
-	font: 12px "Microsoft Yahei","微软雅黑",verdana;
-	color: #333333;
+	font: 12px PingFangSC-Light,helvetica,'Heiti SC';
+	color: #333;
+	line-height: 1.5;
 }
 body,ul,ol,p,h1,h2,h3 {
 	margin: 0;
@@ -25,4 +26,7 @@ a {
 }
 .f_right{
 	float: right;
+}
+*{
+	box-sizing: border-box;
 }

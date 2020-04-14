@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩盒</title>
+    <style>
+        .box{
+            /* height: 100px; */
+            display: flex;
+            flex-direction: row;/* row横向,column纵向 */
+            background-color: cadetblue;
+            /*flex-wrap: wrap;*//* 换行 */
+        }
+        .box > div{
+            background-color: aqua;
+            margin: 1%;
+            height: 50px;
+            /* flex-grow: 1; *//* 宽度填充 */
+            flex-basis: 18%;/* 子元素宽度基准值 */
+            /*flex-grow: 1;*//* 占据剩余空间的一份 */
+            flex-shrink: 1;/* 对于亏损空间的一份 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+    </div>
+</body>
+</html>
