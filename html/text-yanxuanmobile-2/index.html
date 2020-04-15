@@ -76,19 +76,32 @@
             flex-wrap: wrap;
             background-color: #fff;
         }
-        .content > .classes > div{
+        /* .content > .classes > div{
             width: 1.46667rem;
             height: 2.08rem;
             margin: .13333rem .26667rem 0;
             margin-bottom: .12rem;
             flex-basis: 1.46667rem;
             text-align: center;
+        } *//* 当html的font-size可以随网页大小变化再用 */
+        .content > .classes > div{
+            width: 18%;
+            height: 2.08rem;
+            min-height: 69px;
+            margin: .13333rem 1% 0;
+            margin-bottom: .12rem;
+            flex-basis: 18%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
         }
         .content > .classes > div:nth-child(n+6){
             margin-bottom: 0;
         }
         .content > .classes > div > i{
             display: inline-table;
+            margin-left: auto;
+            margin-right: auto;
             width: 1.46667rem;
             height: 1.46667rem;
             background-size: 100% 100%;
