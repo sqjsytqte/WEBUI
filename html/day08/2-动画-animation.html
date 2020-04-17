@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        /* 1.设置动画帧 */
+        @keyframes move {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 300px;
+            }
+        }
+        /* 2.设置动画 */
+        .move{
+            animation-name: move;
+            animation-duration: 3s;
+            animation-timing-function: linear;/* 匀速 */
+            /* animation-fill-mode: forwards;结束后保持结束状态 */
+            animation-fill-mode: backwards;/* 结束状态开始 */
+            animation-iteration-count: infinite;/* 重复 */
+            animation-direction: alternate-reverse;/* 正向反向 */
+            animation-timing-function: steps(10);/* 分成几段,一段段显示 */
+        }
+        .delay1{
+            animation-delay: 1s;
+        }
+        .delay2{
+            animation-delay: 2s;
+        }
+        .delay3{
+            animation-delay: 3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3.应用 -->
+    <div class="box move delay1"></div>
+    <div class="box move delay2"></div>
+    <div class="box move delay3"></div>
+</body>
+</html>

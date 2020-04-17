@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡效果</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+
+            transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-delay: 0s;
+
+            transform-origin: left top;
+
+            /* transform-origin: left top;/* 旋转圆点 */
+            /*transform: scale(2); */
+        }
+        .box:hover{
+            /* width: 200px;
+            height: 200px;
+            opacity: .2; */
+            /* transform-origin: center;/* 旋转圆点 */
+            /* transform: rotate(0.45); */
+            transform-origin: left top;/* 旋转圆点 */
+            transform: scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
