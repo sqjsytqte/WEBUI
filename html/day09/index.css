@@ -1,0 +1,57 @@
+@charset 'utf8';
+@import '../day05/css/common.css';
+
+.box{
+    background-color: #f4f4f4;
+}
+.wrapper{
+    width: 1105px;
+}
+@media screen and (max-width: 1380px){
+    .wrapper{
+        width: 1105px;
+    }
+}
+@media screen and (min-width: 1380px) and (max-width: 1500px){
+    .wrapper{
+        width: 1200px;
+    }
+}
+@media screen and (min-width: 1500px) and (max-width: 1780px){
+    .wrapper{
+        width: 1500px;
+    }
+}
+@media screen and (min-width: 1780px){
+    .wrapper{
+        width: 1710px;
+    }
+}
+.box > .wrapper > ul{
+    background-color: #f1f1f1;
+}
+.box > .wrapper > ul::after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.box > .wrapper > ul > li::after{
+    content:"";
+    display: block;
+    clear: both;
+}
+.box > .wrapper > ul > li{
+    float: left;
+    width: 16.2895928%;
+    min-height: 9.0497738%;
+    max-height: 16.2895928%;
+    /* height: 100px; */
+    /* background-color: blueviolet; */
+    margin-right: 0.4524887%;
+}
+.box > .wrapper > ul > li:last-child{
+    margin-right: 0;
+}
+.img > img{
+    width: 100%;
+}
